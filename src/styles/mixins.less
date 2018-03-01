@@ -1,0 +1,115 @@
+.box-shadow () {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.dropdown-box-shadow () {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+}
+
+.hide-whitespace-characters (@text-size: @text-size-sm) {
+    font-size: 0;
+
+    > * {
+        font-size: @text-size;
+    }
+}
+
+.add-padding-minus-margin-left(@size: @padding-md) {
+    padding-left: 16px;
+    margin-left: -16px;
+}
+
+.vertically-spaced-children(@spacing-height: @vertical-spacing-md) {
+    // Margin for all children that are not the first and are not .ng-hide
+    > *:not(.ng-hide) {
+        margin-top: 0;
+    }
+    > *:not(.ng-hide) ~ *:not(.ng-hide) {
+        margin-top: @spacing-height;
+    }
+
+    > * {
+        margin-bottom: 0;
+    }
+}
+
+.vertically-separated-children(@spacing-height: @vertical-spacing-md, @line-on-bottom: false) {
+    // Border for all children that are not the first and are not .ng-hide
+    > *:not(.ng-hide) {
+        border-top: none;
+    }
+    > *:not(.ng-hide) ~ *:not(.ng-hide) {
+        border-top: 1px solid @light-border-color;
+        padding-top: @spacing-height;
+    }
+}
+
+.vertically-separated-children(@spacing-height: @vertical-spacing-md, true) {
+    > *:last-child {
+        border-bottom: 1px solid @light-border-color;
+        padding-bottom: @spacing-height;
+    }
+}
+
+.horizontally-spaced-children(@spacing-width: @horizontal-spacing-md, @text-size: @text-size-sm) {
+    .hide-whitespace-characters(@text-size);
+
+    // Margin for all children that are not the first and are not .ng-hide
+    > *:not(.ng-hide) {
+        margin-left: 0;
+    }
+    > *:not(.ng-hide) ~ *:not(.ng-hide) {
+        margin-left: @spacing-width;
+    }
+}
+
+
+.vertically-center-children-absolute() {
+    position: relative;
+
+    > * {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+.vertically-center-children-line-height(@line-height) {
+    line-height: @line-height;
+
+    > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.vertically-center-children-flexbox() {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.vertically-center-children-flexbox (@horizontally-justify) when (@horizontally-justify = left-align) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.vertically-center-children-flexbox (@horizontally-justify) when (@horizontally-justify = right-align) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.vertically-center-children-flexbox (@horizontally-justify) when (@horizontally-justify = center) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grab-cursor() {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
