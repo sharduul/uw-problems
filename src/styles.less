@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import "reset";
+@import "variables";
+
+body {
+    font-family: @font-family, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: @type-weight-semibold;
+}
+
+a {
+  color: @link-color !important;
+
+  &:hover {
+    color: @link-color !important;
+  }
+}
+
+.ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid @border-color;
+  background-color: @dark-background-color;
+}
+
+.ql-container.ql-snow {
+  border: none;
+}
